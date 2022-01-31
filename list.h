@@ -66,6 +66,5 @@ public:
     ~LinkedList();
     void append(string stringData);
     bool remove(string stringData);
-    void display();
     void displayReverse();
 };

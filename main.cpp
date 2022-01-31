@@ -1,7 +1,7 @@
 /*
 Student Name: Connor Sparkman
 Student NetID: cps260
-Compiler Used: Linux GCC
+Compiler Used: Visual Studio
 Program Description:
 This program asks a user for strings, enters those strings into a linked list, and displays the reversed linked list back to the user
 */
@@ -20,13 +20,6 @@ bool processText(istream& is, LinkedList& ll, bool interactive)
 {
 	string line;
 	string command;
-
-	// Command argument variables
-	int intArg1;
-	int intArg2;
-	string strArg1;
-	string strArg2;
-	string strArg3;
 
 	// Initialize our classes as objects
 	Tokenizer tkn;
@@ -50,7 +43,7 @@ bool processText(istream& is, LinkedList& ll, bool interactive)
 		// Begin long chain of if statement
 		tkn.readString(command);
 
-
+		// add string to front of list
 		ll.append(command);
 		if (command != "STOP")
 		{
@@ -59,7 +52,7 @@ bool processText(istream& is, LinkedList& ll, bool interactive)
 
 		if (command == "STOP")
 		{
-			cout << "Exiting ...." << endl;
+			// remove "STOP" from list
 			ll.remove(command);
 			return false;
 		}
@@ -73,7 +66,6 @@ int main()
 	// This is needed to create an interacive shell
 	cout << "This program will read strings until STOP is entered." << endl;
 	processText(cin, ll, true);
-	ll.display();
 	ll.displayReverse();
 	ll.~LinkedList();
 	return 0;

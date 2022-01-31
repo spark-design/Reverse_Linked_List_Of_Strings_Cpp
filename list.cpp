@@ -63,7 +63,6 @@ void Tokenizer::clear()
 }
 
 
-
 LinkedList::~LinkedList()
 {
 	Node* tmp = head;
@@ -78,6 +77,8 @@ LinkedList::~LinkedList()
 	tail = nullptr;
 }
 
+
+// Add node with string to front of list
 void LinkedList::append(string stringData)
 {
 	Node* tmp = new Node(stringData);
@@ -96,6 +97,8 @@ void LinkedList::append(string stringData)
 	tail = tmp;
 }
 
+
+// used to remove extra STOP input
 bool LinkedList::remove(string stringData)
 {
 	Node* tmp = head;
@@ -131,53 +134,16 @@ bool LinkedList::remove(string stringData)
 	return false;
 }
 
-void LinkedList::display()
-{
-	cout << endl;
-	cout << "Here is a list of the strings you entered:" << endl;
-	Node* tmp = head;
-
-	while (tmp != nullptr)
-	{
-		if (tmp == head)
-		{
-			cout << "->[ " << tmp->stringData << " ]<-";
-		}
-		else if (tmp == tail)
-		{
-			cout << "->[ " << tmp->stringData << " ]<-";
-		}
-		else
-		{
-			cout << "->[ " << tmp->stringData << " ]<-";
-		}
-
-		tmp = tmp->next;
-	}
-	cout << endl;
-	cout << endl;
-}
-
+// display list starting at tail and going reverse
 void LinkedList::displayReverse()
 {
+	cout << "" << endl;
 	cout << "Here is a reversed list of the strings you entered:" << endl;
 	Node* tmp = tail;
 
 	while (tmp != nullptr)
 	{
-		if (tmp == tail)
-		{
-			cout << "->[ " << tmp->stringData << " ]<-";
-		}
-		else if (tmp == head)
-		{
-			cout << "->[ " << tmp->stringData << " ]<-";
-		}
-		else
-		{
-			cout << "->[ " << tmp->stringData << " ]<-";
-		}
-
+		cout << "->[ " << tmp->stringData << " ]<-";
 		tmp = tmp->prev;
 	}
 	cout << endl;
